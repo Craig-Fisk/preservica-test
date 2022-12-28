@@ -1,7 +1,7 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import React from 'react';
-import './App.css';
-import { LoginPage } from './pages/login';
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import React from "react";
+import "./App.css";
+import { LoginPage } from "./pages/login";
 
 const theme = createTheme();
 
