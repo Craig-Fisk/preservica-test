@@ -25,7 +25,7 @@ export function UserListPage() {
       {userList &&
         userList.map((user) => {
           return (
-            <Card sx={{ marginBottom: "24px" }}>
+            <Card key={user.id} sx={{ marginBottom: "24px" }}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {user.name}
