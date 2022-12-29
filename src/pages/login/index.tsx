@@ -11,6 +11,7 @@ import {
   PasswordValidationResponse,
   validatePassword,
 } from "./validatePassword";
+import { useNavigate } from "react-router-dom";
 
 export function LoginPage() {
   const [emailValidation, setEmailValidation] = useState<
@@ -21,6 +22,8 @@ export function LoginPage() {
     PasswordValidationResponse | undefined
   >(undefined);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -28,10 +31,9 @@ export function LoginPage() {
     const passwordValidation = validatePassword(data.get("password"));
     setEmailValidation(emailValidation);
     setPasswordValidation(passwordValidation);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    if (emailValidation.valid && passwordValidation.valid) {
+      navigate("/users");
+    }
   };
 
   return (
